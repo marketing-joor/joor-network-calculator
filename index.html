@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/joor-design-system-b22db909-8ad3-427d-b74c-b5530e1b2ed7/figma/fig-tokens.css">
+  <link rel="stylesheet" href="_ds/joor-design-system-b22db909-8ad3-427d-b74c-b5530e1b2ed7/_ds_bundle.css">
+  <link rel="stylesheet" href="_ds/joor-design-system-b22db909-8ad3-427d-b74c-b5530e1b2ed7/styles.css">
+  <script src="_ds/joor-design-system-b22db909-8ad3-427d-b74c-b5530e1b2ed7/_ds_bundle.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    @font-face { font-family: Canela; font-weight: 100; font-style: normal; font-display: swap;
+      src: url('assets/CanelaDeck-Thin.woff') format('woff'), url('assets/CanelaDeck-Thin.otf') format('opentype'); }
+    @font-face { font-family: Canela; font-weight: 300; font-style: normal; font-display: swap;
+      src: url('assets/CanelaDeck-Light.woff') format('woff'), url('assets/CanelaDeck-Light.otf') format('opentype'); }
+    body { font-synthesis-weight: none; -webkit-font-synthesis: none; margin: 0; background: #FFFFFF; -webkit-font-smoothing: antialiased; }
+    a { color: var(--color-secondary-800); text-decoration: none; }
+    a:hover { color: var(--color-secondary-700); text-decoration: underline; }
+    .nc-rail { scrollbar-width: none; -ms-overflow-style: none; }
+    .nc-rail::-webkit-scrollbar { display: none; }
+    @keyframes nc-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .nc-marquee-track { animation: nc-marquee 46s linear infinite; }
+    .nc-marquee:hover .nc-marquee-track { animation-play-state: paused; }
+    @media (prefers-reduced-motion: reduce) { .nc-marquee-track { animation: none; } }
+    .nc-results { display: grid; grid-template-columns: minmax(300px, 380px) minmax(0, 1fr); align-items: stretch; }
+    .nc-metrics { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    .nc-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    @container (max-width: 1120px) {
+      .nc-results { grid-template-columns: minmax(0, 1fr); }
+      .nc-results > div:first-child { border-right: 0 !important; border-bottom: 1px solid var(--color-primary-100); }
+      .nc-metrics > div:nth-child(1), .nc-metrics > div:nth-child(2) { display: none !important; }
+    }
+    @media (max-width: 1150px) {
+      .nc-split { grid-template-columns: minmax(0, 1fr); }
+      .nc-split > div:first-child { min-height: 0 !important; padding: 0 40px !important; }
+      .nc-split > div:last-child { padding: 56px 40px !important; }
+      .nc-split h2 { font-size: 42px !important; }
+    }
+    @media (max-width: 700px) {
+      .nc-split > div:first-child { padding: 0 28px !important; }
+      .nc-split > div:last-child { padding: 48px 28px !important; }
+      .nc-split h2 { font-size: 34px !important; }
+    }
+  </style>
+</helmet>
+
+<div style="width: 100%; background: #FFFFFF; font-family: Montserrat, sans-serif; color: var(--color-primary-800); --size-border-radius-small: 0px; --size-border-radius-medium: 10px; --size-border-radius-large: 20px;">
+
+  <header data-screen-label="Header" style="background: #FFFFFF; border-bottom: 1px solid var(--color-primary-100);">
+    <div style="max-width: 1280px; margin: 0 auto; min-height: 57px; padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+      <img src="assets/joor-logo.png" alt="JOOR" style="height: 55px; width: auto; display: block; flex: none;">
+      <sc-if value="{{ showNav }}" hint-placeholder-val="{{ false }}">
+        <nav style="display: flex; align-items: center; flex-wrap: wrap; gap: 12px 24px; min-width: 0; font-size: 14px; color: var(--color-primary-800);">
+          <a href="#solutions" style="color: var(--color-primary-800);">Solutions</a>
+          <a href="#industries" style="color: var(--color-primary-800);">Industries</a>
+        </nav>
+      </sc-if>
+      <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px 16px; min-width: 0;">
+        <div style="zoom: 1.47; --color-primary-800: var(--color-secondary-800); --color-primary-500: var(--color-secondary-700);">
+          <x-import component-from-global-scope="JoorDesignSystem.Button" hint-size="150px,32px">Request a Demo</x-import>
+        </div>
+        <div style="zoom: 1.47;">
+          <x-import component-from-global-scope="JoorDesignSystem.SecondaryButton" hint-size="170px,32px">Open a Buyer Account</x-import>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section data-screen-label="Hero" style="position: relative; background: var(--color-primary-900);">
+    <img src="assets/hero-banner.webp" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: left center;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(26,30,34,0.72) 0%, rgba(26,30,34,0.45) 42%, rgba(26,30,34,0.12) 70%, rgba(26,30,34,0.05) 100%); pointer-events: none;"></div>
+
+    <div style="position: relative; max-width: 1280px; margin: 0 auto; padding: 92px 40px 300px;">
+      <div style="font-size: 14px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 32px;">Category Snapshot Calculator</div>
+      <h1 style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 100; font-size: clamp(52px, 5.4vw, 76px); line-height: 1.04; letter-spacing: -0.015em; margin: 0 0 24px; color: #FFFFFF; max-width: 780px; text-wrap: pretty;">See what buyer demand looks like in your category.</h1>
+      <p style="font-size: 22px; font-weight: 500; line-height: 1.4; color: rgba(255,255,255,0.88); margin: 0; max-width: 620px;">Pick your category and see live reach, demand, and reorder data from JOOR's network of 700,000+ retail buyers.</p>
+    </div>
+  </section>
+
+  <section data-screen-label="Calculator" id="calculator" style="background: #FFFFFF;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 40px;">
+      <div style="margin-top: -192px; position: relative; background: #FFFFFF; border-radius: var(--size-border-radius-medium); box-shadow: 0 40px 90px rgba(45,52,57,0.22); overflow: hidden;">
+
+        <div style="padding: 44px 56px 36px;">
+          <div style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: 38px; line-height: 1.15; letter-spacing: -0.01em; color: var(--color-primary-800); margin-bottom: 26px;">Select a category</div>
+
+          <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <sc-for list="{{ categories }}" as="c" hint-placeholder-count="6">
+                <button type="button" onClick="{{ c.onSelect }}" style="font-family: Montserrat, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; height: 44px; padding: 0 24px; border-radius: 0; border: 1px solid var(--color-primary-200); cursor: pointer; transition: background 160ms ease, border-color 160ms ease, color 160ms ease; background: {{ c.bg }}; color: {{ c.fg }}; border-color: {{ c.bd }};" style-hover="border-color: var(--color-primary-800);">{{ c.name }}</button>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+            <div class="nc-rail" style="display: flex; gap: 0; overflow-x: auto; border-bottom: 1px solid var(--color-primary-200); margin: 0 -56px; padding: 0 56px;">
+              <sc-for list="{{ categories }}" as="c" hint-placeholder-count="6">
+                <button type="button" onClick="{{ c.onSelect }}" style="flex: none; font-family: Montserrat, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; height: 48px; padding: 0 18px; border: 0; background: transparent; cursor: pointer; transition: color 160ms ease, box-shadow 160ms ease; color: {{ c.tabFg }}; box-shadow: {{ c.tabRule }};">{{ c.name }}</button>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+
+        <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+          <div style="container-type: inline-size; border-top: 1px solid var(--color-primary-100);">
+            <div class="nc-results">
+
+            <div style="padding: 48px 56px; border-right: 1px solid var(--color-primary-100);">
+              <div style="font-size: 14px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgb(119,132,143); margin-bottom: 32px; text-align: center;">Where the buyers are</div>
+
+              <div style="display: flex; justify-content: center; margin-bottom: 36px;">
+                <svg viewBox="-46 -18 292 236" style="width: 300px; height: 244px; overflow: visible; transition: {{ chartTransition }}; transform-origin: 50% 50%; opacity: {{ chartOpacity }}; transform: {{ chartScale }};">
+                  <sc-for list="{{ segments }}" as="s" hint-placeholder-count="3">
+                    <path d="{{ s.path }}" fill="{{ s.color }}" stroke="#FFFFFF" stroke-width="2"></path>
+                  </sc-for>
+                  <line x1="{{ naLeadX1 }}" y1="{{ naLeadY1 }}" x2="{{ naLeadX2 }}" y2="{{ naLeadY2 }}" stroke="#AFBCC5" stroke-width="1"></line>
+                  <line x1="{{ emeaLeadX1 }}" y1="{{ emeaLeadY1 }}" x2="{{ emeaLeadX2 }}" y2="{{ emeaLeadY2 }}" stroke="#AFBCC5" stroke-width="1"></line>
+                  <line x1="{{ apacLeadX1 }}" y1="{{ apacLeadY1 }}" x2="{{ apacLeadX2 }}" y2="{{ apacLeadY2 }}" stroke="#AFBCC5" stroke-width="1"></line>
+                  <text x="{{ naX }}" y="{{ naY }}" text-anchor="{{ naAnchor }}" dominant-baseline="middle" fill="{{ naFill }}" style="font-family: Montserrat, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.08em;">NA</text>
+                  <text x="{{ emeaX }}" y="{{ emeaY }}" text-anchor="{{ emeaAnchor }}" dominant-baseline="middle" fill="{{ emeaFill }}" style="font-family: Montserrat, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.08em;">EMEA</text>
+                  <text x="{{ apacX }}" y="{{ apacY }}" text-anchor="{{ apacAnchor }}" dominant-baseline="middle" fill="{{ apacFill }}" style="font-family: Montserrat, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.08em;">APAC</text>
+                </svg>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 18px; transition: {{ legendTransition }}; opacity: {{ enterOpacity }}; transform: {{ enterShift }};">
+                <sc-for list="{{ segments }}" as="s" hint-placeholder-count="3">
+                  <div style="display: flex; align-items: center; gap: 16px;">
+                    <span style="width: 18px; height: 12px; flex: none; background: {{ s.color }};"></span>
+                    <span style="flex: 1; font-size: 16px; line-height: 1.45; color: var(--color-primary-700);">{{ s.fullName }}</span>
+                    <span style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: 30px; line-height: 1; color: var(--color-primary-800);">{{ s.pct }}</span>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="margin-top: 26px; font-size: 15px; line-height: 1.6; color: var(--color-primary-500);">{{ regionDesc }}</div>
+            </div>
+
+            <div class="nc-metrics" style="position: relative; padding: 48px 56px; column-gap: 48px; row-gap: 44px;">
+              <div style="position: absolute; left: 56px; right: 56px; top: 50%; height: 1px; background: var(--color-primary-100); pointer-events: none;"></div>
+              <div style="position: absolute; top: 48px; bottom: 48px; left: 50%; width: 1px; background: var(--color-primary-100); pointer-events: none;"></div>
+              <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="4">
+                <div style="position: relative; min-width: 0;">
+                  <div style="display: flex; align-items: baseline; gap: 12px; min-height: 74px; transition: {{ valueTransition }}; opacity: {{ enterOpacity }}; transform: {{ enterShift }};">
+                    <sc-if value="{{ m.isYoy }}" hint-placeholder-val="{{ false }}">
+                      <span style="font-size: 20px; line-height: 1; color: var(--color-secondary-800);">▲</span>
+                    </sc-if>
+                    <span style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: clamp(40px, 7cqw, 70px); line-height: 1; letter-spacing: -0.02em; color: var(--color-primary-800);">{{ m.value }}</span>
+                  </div>
+                  <sc-if value="{{ m.isRate }}" hint-placeholder-val="{{ false }}">
+                    <div style="height: 12px; background: var(--color-primary-100); margin: 18px 0 4px; max-width: 280px;">
+                      <div style="height: 100%; background: var(--color-secondary-800); transition: width 460ms ease; width: {{ m.pct }};"></div>
+                    </div>
+                  </sc-if>
+                  <div style="margin-top: 16px; font-size: 18px; font-weight: 600; line-height: 1.5; color: var(--color-primary-700);">{{ m.label }}</div>
+                  <div style="margin-top: 10px; font-size: 15px; line-height: 1.6; color: var(--color-primary-500);">{{ m.desc }}</div>
+                </div>
+              </sc-for>
+            </div>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+          <div style="border-top: 1px solid var(--color-primary-100); padding: 36px 0 28px;">
+            <div class="nc-rail" onScroll="{{ onRailScroll }}" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 0;">
+              <div style="flex: none; width: 100%; scroll-snap-align: center; padding: 0 28px; box-sizing: border-box;">
+                <div style="font-size: 14px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgb(119,132,143); margin-bottom: 24px; text-align: center;">Where the buyers are</div>
+                <div style="display: flex; justify-content: center; margin-bottom: 28px;">
+                  <svg viewBox="-46 -18 292 236" style="width: 100%; max-width: 280px; height: auto; overflow: visible; transition: {{ chartTransition }}; transform-origin: 50% 50%; opacity: {{ chartOpacity }}; transform: {{ chartScale }};">
+                    <sc-for list="{{ segments }}" as="s" hint-placeholder-count="3">
+                      <path d="{{ s.path }}" fill="{{ s.color }}" stroke="#FFFFFF" stroke-width="2"></path>
+                    </sc-for>
+                    <text x="{{ naX }}" y="{{ naY }}" text-anchor="{{ naAnchor }}" dominant-baseline="middle" fill="{{ naFill }}" style="font-family: Montserrat, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.08em;">NA</text>
+                    <text x="{{ emeaX }}" y="{{ emeaY }}" text-anchor="{{ emeaAnchor }}" dominant-baseline="middle" fill="{{ emeaFill }}" style="font-family: Montserrat, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.08em;">EMEA</text>
+                    <text x="{{ apacX }}" y="{{ apacY }}" text-anchor="{{ apacAnchor }}" dominant-baseline="middle" fill="{{ apacFill }}" style="font-family: Montserrat, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.08em;">APAC</text>
+                  </svg>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 14px;">
+                  <sc-for list="{{ segments }}" as="s" hint-placeholder-count="3">
+                    <div style="display: flex; align-items: center; gap: 14px;">
+                      <span style="width: 18px; height: 12px; flex: none; background: {{ s.color }};"></span>
+                      <span style="flex: 1; font-size: 15px; line-height: 1.45; color: var(--color-primary-700);">{{ s.fullName }}</span>
+                      <span style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: 26px; line-height: 1; color: var(--color-primary-800);">{{ s.pct }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+                <div style="margin-top: 20px; font-size: 15px; line-height: 1.6; color: var(--color-primary-500);">{{ regionDesc }}</div>
+              </div>
+
+              <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="4">
+                <div style="flex: none; width: 100%; scroll-snap-align: center; padding: 0 28px; box-sizing: border-box;">
+                  <div style="display: flex; align-items: baseline; gap: 12px; min-height: 64px;">
+                    <sc-if value="{{ m.isYoy }}" hint-placeholder-val="{{ false }}">
+                      <span style="font-size: 18px; line-height: 1; color: var(--color-secondary-800);">▲</span>
+                    </sc-if>
+                    <span style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: 58px; line-height: 1; letter-spacing: -0.02em; color: var(--color-primary-800);">{{ m.value }}</span>
+                  </div>
+                  <sc-if value="{{ m.isRate }}" hint-placeholder-val="{{ false }}">
+                    <div style="height: 12px; background: var(--color-primary-100); margin: 16px 0 4px;">
+                      <div style="height: 100%; background: var(--color-secondary-800); transition: width 460ms ease; width: {{ m.pct }};"></div>
+                    </div>
+                  </sc-if>
+                  <div style="margin-top: 14px; font-size: 17px; font-weight: 600; line-height: 1.5; color: var(--color-primary-700);">{{ m.label }}</div>
+                  <div style="margin-top: 10px; font-size: 15px; line-height: 1.6; color: var(--color-primary-500);">{{ m.desc }}</div>
+                </div>
+              </sc-for>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 28px;">
+              <button type="button" onClick="{{ onPrev }}" aria-label="Previous stat" style="flex: none; width: 34px; height: 34px; padding: 0; display: flex; align-items: center; justify-content: center; border: 1px solid var(--color-primary-200); background: #FFFFFF; cursor: pointer; opacity: {{ prevOpacity }};">
+                <svg width="9" height="15" viewBox="0 0 9 15" fill="none"><path d="M7.5 1L1.5 7.5l6 6.5" stroke="#323E48" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </button>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <sc-for list="{{ dots }}" as="d" hint-placeholder-count="5">
+                  <span style="width: 7px; height: 7px; border-radius: 50%; transition: background 200ms ease; background: {{ d.bg }};"></span>
+                </sc-for>
+              </div>
+              <button type="button" onClick="{{ onNext }}" aria-label="Next stat" style="flex: none; width: 34px; height: 34px; padding: 0; display: flex; align-items: center; justify-content: center; border: 1px solid var(--color-primary-200); background: #FFFFFF; cursor: pointer; opacity: {{ nextOpacity }};">
+                <svg width="9" height="15" viewBox="0 0 9 15" fill="none"><path d="M1.5 1l6 6.5-6 6.5" stroke="#323E48" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </button>
+            </div>
+          </div>
+        </sc-if>
+
+        <div style="background: var(--color-primary-800); padding: 34px 56px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
+          <div style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: 38px; line-height: 1.2; letter-spacing: -0.005em; color: #FFFFFF; max-width: 660px;">{{ band1Headline }}</div>
+          <div style="zoom: 1.45; --color-primary-800: var(--color-secondary-800); --color-primary-500: var(--color-secondary-700);">
+            <x-import component-from-global-scope="JoorDesignSystem.Button" hint-size="180px,32px">Talk to a Consultant</x-import>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Platform value" id="platform" style="background: #FFFFFF; padding: 88px 0 0;">
+    <div class="nc-split" style="display: grid; align-items: stretch; gap: 0;">
+      <div style="display: flex; align-items: center; justify-content: center; padding: 0 24px 0 40px;">
+        <img src="assets/platform-tiles.png" alt="Retailer storefront with brand product tiles on JOOR" style="width: 100%; max-width: 660px; height: auto; display: block;">
+      </div>
+      <div style="display: flex; align-items: center; padding: 96px 40px;">
+        <div style="max-width: 540px;">
+          <div style="font-size: 14px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgb(119,132,143); margin-bottom: 26px;">The platform behind the numbers</div>
+          <h2 style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: 58px; line-height: 1.06; letter-spacing: -0.01em; margin: 0 0 40px; color: var(--color-primary-800); text-wrap: pretty;">One place to find buyers, write orders and see what sells.</h2>
+          <div style="display: flex; flex-direction: column; gap: 26px;">
+            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: var(--color-primary-700);"><strong style="font-weight: 600;">Find new retailers with JOOR Discover:</strong> 700,000+ active buyers across 150 countries, from independent boutiques to global department stores.</p>
+            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: var(--color-primary-700);"><strong style="font-weight: 600;">Manage orders in real time:</strong> from first sample request through to reorder, with visibility into where every order stands so nothing slips through the cracks between market and delivery.</p>
+            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: var(--color-primary-700);"><strong style="font-weight: 600;">Connect to your stack:</strong> 100+ ERP, PLM, and POS integrations, including Shopify, NetSuite, and SAP, so orders placed on JOOR flow straight into the systems your team already runs on, without manual re-entry.</p>
+            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: var(--color-primary-700);"><strong style="font-weight: 600;">See demand as it happens:</strong> sell-through, re-order, and regional data across your whole wholesale book, so you can see what's working while there's still time to act on it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Network scale" id="network" style="background: var(--color-primary-100); padding: 120px 0;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 40px;">
+      <h2 style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: clamp(28px, 3.45vw, 44px); line-height: 1.15; margin: 0 auto 80px; color: var(--color-primary-800); max-width: 100%; text-align: center;">The industry’s largest curated B2B network</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 40px 32px; align-items: start;">
+        <div style="">
+          <div style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: clamp(34px, 3.6vw, 66px); line-height: 1.05; letter-spacing: -0.01em; color: var(--color-primary-800); text-align: center;">700,000+</div>
+          <div style="margin-top: 16px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-primary-700); text-align: center;">Retail buyers</div>
+        </div>
+        <div style="">
+          <div style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: clamp(34px, 3.6vw, 66px); line-height: 1.05; letter-spacing: -0.01em; color: var(--color-primary-800); text-align: center;">150</div>
+          <div style="margin-top: 16px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-primary-700); text-align: center;">Countries reached</div>
+        </div>
+        <div style="">
+          <div style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: clamp(34px, 3.6vw, 66px); line-height: 1.05; letter-spacing: -0.01em; color: var(--color-primary-800); text-align: center;">135</div>
+          <div style="margin-top: 16px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-primary-700); text-align: center;">Currencies supported</div>
+        </div>
+        <div style="">
+          <div style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: clamp(34px, 3.6vw, 66px); line-height: 1.05; letter-spacing: -0.01em; color: var(--color-primary-800); text-align: center;">2.5M+</div>
+          <div style="margin-top: 16px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-primary-700); text-align: center;">New connections made</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 96px;">
+        <div style="font-size: 14px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgb(119,132,143); margin-bottom: 40px; text-align: center;">Brands &amp; Retailers on JOOR</div>
+        <div class="nc-marquee" style="overflow: hidden; width: 100%;">
+          <div class="nc-marquee-track" style="display: flex; align-items: center; gap: 72px; width: max-content; padding-right: 72px;">
+            <img src="assets/logo-jacquemus-trim.png" alt="Jacquemus" style="flex: none; max-height: 34px; width: auto; height: auto; display: block;">
+            <img src="assets/logo-cpcompany-trim.png" alt="C.P. Company" style="flex: none; max-height: 56px; width: auto; height: auto; display: block;">
+            <img src="assets/logo-kooples-trim.png" alt="The Kooples" style="flex: none; max-height: 36px; width: auto; height: auto; display: block;">
+            <img src="assets/logo-drmartens-trim.png" alt="Dr. Martens" style="flex: none; max-height: 59px; width: auto; height: auto; display: block;">
+            <img src="assets/logo-loewe.png" alt="Loewe" style="flex: none; max-height: 40px; width: auto; height: auto; display: block;">
+            <img src="assets/logo-umbro-trim.png" alt="Umbro" style="flex: none; max-height: 61px; width: auto; height: auto; display: block;">
+            <img src="assets/retailer-davidjones.png" alt="David Jones" style="flex: none; width: 210px; height: auto; display: block;">
+            <img src="assets/retailer-dillards.png" alt="Dillard's" style="flex: none; width: 150px; height: auto; display: block;">
+            <img src="assets/retailer-selfridges.png" alt="Selfridges &amp; Co" style="flex: none; width: 185px; height: auto; display: block;">
+            <img src="assets/logo-vince.png" alt="Vince" style="flex: none; width: 150px; height: auto; display: block;">
+            <img src="assets/retailer-antonioli.png" alt="Antonioli" style="flex: none; width: 185px; height: auto; display: block;">
+            <img src="assets/logo-jacquemus-trim.png" aria-hidden="true" alt="" style="flex: none; max-height: 34px; width: auto; height: auto; display: block;">
+            <img src="assets/logo-cpcompany-trim.png" aria-hidden="true" alt="" style="flex: none; max-height: 56px; width: auto; height: auto; display: block;">
+            <img src="assets/logo-kooples-trim.png" aria-hidden="true" alt="" style="flex: none; max-height: 36px; width: auto; height: auto; display: block;">
+            <img src="assets/logo-drmartens-trim.png" aria-hidden="true" alt="" style="flex: none; max-height: 59px; width: auto; height: auto; display: block;">
+            <img src="assets/logo-loewe.png" aria-hidden="true" alt="" style="flex: none; max-height: 40px; width: auto; height: auto; display: block;">
+            <img src="assets/logo-umbro-trim.png" aria-hidden="true" alt="" style="flex: none; max-height: 61px; width: auto; height: auto; display: block;">
+            <img src="assets/retailer-davidjones.png" aria-hidden="true" alt="" style="flex: none; width: 210px; height: auto; display: block;">
+            <img src="assets/retailer-dillards.png" aria-hidden="true" alt="" style="flex: none; width: 150px; height: auto; display: block;">
+            <img src="assets/retailer-selfridges.png" aria-hidden="true" alt="" style="flex: none; width: 185px; height: auto; display: block;">
+            <img src="assets/logo-vince.png" aria-hidden="true" alt="" style="flex: none; width: 150px; height: auto; display: block;">
+            <img src="assets/retailer-antonioli.png" aria-hidden="true" alt="" style="flex: none; width: 185px; height: auto; display: block;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Closing CTA" style="position: relative; background: var(--color-primary-900); display: flex; align-items: center; min-height: 620px;">
+    <img src="assets/cta-store.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(38,45,51,0.34) 0%, rgba(38,45,51,0.74) 42%, rgba(38,45,51,0.78) 62%, rgba(38,45,51,0.38) 100%); pointer-events: none;"></div>
+    <div style="position: relative; max-width: 1280px; margin: 0 auto; padding: 72px 40px; width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <div style="max-width: 940px; width: 100%; display: flex; flex-direction: column; align-items: center;">
+      <h2 style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 100; font-size: clamp(38px, 4.6vw, 60px); line-height: 1.06; letter-spacing: -0.015em; margin: 0 0 24px; color: #FFFFFF; max-width: 820px; text-wrap: pretty;">Get discovered by the retailers already buying wholesale.</h2>
+      <p style="font-size: 24px; font-weight: 500; line-height: 1.4; color: #FFFFFF; margin: 0 0 40px; max-width: 700px;">Reach thousands of verified buyers actively sourcing wholesale. Built to get your brand seen, not buried.</p>
+      <div style="zoom: 1.5; --color-primary-800: var(--color-secondary-800); --color-primary-500: var(--color-secondary-700);">
+        <x-import component-from-global-scope="JoorDesignSystem.Button" hint-size="150px,32px">Request a Demo</x-import>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <footer data-screen-label="Footer" style="background: var(--color-primary-800);">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 38px 40px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;">
+      <div style="display: flex; align-items: center; gap: 32px;">
+        <img src="assets/joor-logo-white.png" alt="JOOR" style="height: 26px; width: auto; display: block;">
+        <div style="font-size: 13px; color: rgba(255,255,255,0.6);">The wholesale platform for fashion.</div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 26px; font-size: 12px; color: rgba(255,255,255,0.45);">
+        <span>© 2026 JOOR. All rights reserved.</span>
+        <a href="#privacy" style="color: rgba(255,255,255,0.7);">Privacy</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showNav&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Page&quot;}}">
+const DATA = [
+  { id: 'apparel', name: 'Apparel', noun: 'apparel', regions: [42, 46, 12], retailers: 124000, reorder: 58,
+    brand: { type: 'yoy', value: '+16%' }, sheets: { type: 'yoy', value: '+38%' } },
+  { id: 'footwear', name: 'Footwear', noun: 'footwear', regions: [40, 47, 13], retailers: 70000, reorder: 52,
+    brand: { type: 'yoy', value: '+26%' }, sheets: { type: 'yoy', value: '+51%' } },
+  { id: 'accessories', name: 'Accessories', noun: 'accessories', regions: [38, 49, 13], retailers: 92000, reorder: 47,
+    brand: { type: 'yoy', value: '+21%' }, sheets: { type: 'yoy', value: '+52%' } },
+  { id: 'swimwear', name: 'Swimwear & Resort', noun: 'swimwear & resort', regions: [46, 40, 14], retailers: 38000, reorder: 47,
+    brand: { type: 'yoy', value: '+53%' }, sheets: { type: 'yoy', value: '+77%' } },
+  { id: 'childrenswear', name: "Children's Wear", noun: "children's wear", regions: [47, 41, 12], retailers: 50000, reorder: 54,
+    brand: { type: 'count', value: '60,000' }, sheets: { type: 'count', value: '120,000' } },
+  { id: 'bridal', name: 'Bridal', noun: 'bridal', metricNoun: "women's wear", regions: [38, 50, 12], retailers: 130000, reorder: 61,
+    brand: { type: 'count', value: '150,000' }, sheets: { type: 'count', value: '170,000' } }
+];
+
+const REGIONS = [
+  { acronym: 'NA', full: 'US and Canada', color: 'var(--color-primary-800)', labelColor: '#FFFFFF' },
+  { acronym: 'EMEA', full: 'Europe, Middle East and Africa', color: 'var(--color-secondary-800)', labelColor: '#FFFFFF' },
+  { acronym: 'APAC', full: 'Asia Pacific, Australia and New Zealand', color: 'var(--color-primary-300)', labelColor: '#323E48' }
+];
+const R = 88, CX = 100, CY = 100;
+
+function wedge(startPct, pct) {
+  const a0 = (startPct / 100) * 2 * Math.PI - Math.PI / 2;
+  const a1 = ((startPct + pct) / 100) * 2 * Math.PI - Math.PI / 2;
+  const x0 = CX + R * Math.cos(a0), y0 = CY + R * Math.sin(a0);
+  const x1 = CX + R * Math.cos(a1), y1 = CY + R * Math.sin(a1);
+  const mid = (a0 + a1) / 2, cos = Math.cos(mid), sin = Math.sin(mid);
+  return {
+    d: 'M ' + CX + ' ' + CY + ' L ' + x0.toFixed(2) + ' ' + y0.toFixed(2) + ' A ' + R + ' ' + R + ' 0 ' + (pct > 50 ? 1 : 0) + ' 1 ' + x1.toFixed(2) + ' ' + y1.toFixed(2) + ' Z',
+    lx: (CX + R * 1.16 * cos + (cos >= 0 ? 4 : -4)).toFixed(1),
+    ly: (CY + R * 1.16 * sin).toFixed(1),
+    anchor: cos >= 0 ? 'start' : 'end',
+    leadX1: (CX + R * 0.98 * cos).toFixed(1), leadY1: (CY + R * 0.98 * sin).toFixed(1),
+    leadX2: (CX + R * 1.12 * cos).toFixed(1), leadY2: (CY + R * 1.12 * sin).toFixed(1)
+  };
+}
+
+class Component extends DCLogic {
+  state = { sel: 'apparel', entered: true, mobile: false, tile: 0 };
+
+  componentDidMount() {
+    this._mq = window.matchMedia('(max-width: 860px)');
+    this._onMq = () => this.setState({ mobile: this._mq.matches, tile: 0 });
+    this._onMq();
+    if (this._mq.addEventListener) this._mq.addEventListener('change', this._onMq);
+    else this._mq.addListener(this._onMq);
+
+    let fromUrl = null;
+    try { fromUrl = new URLSearchParams(window.location.search).get('vertical'); } catch (e) {}
+    if (fromUrl && DATA.some((d) => d.id === fromUrl)) this.pick(fromUrl);
+  }
+
+  componentWillUnmount() {
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (!this._mq) return;
+    if (this._mq.removeEventListener) this._mq.removeEventListener('change', this._onMq);
+    else this._mq.removeListener(this._onMq);
+  }
+
+  pick(id) {
+    if (this._raf) cancelAnimationFrame(this._raf);
+    this.setState({ sel: id, entered: false, tile: 0 });
+    // mobile: a new category resets the results carousel to the first tile
+    const rail = document.querySelector('.nc-rail[style*="scroll-snap"]');
+    if (rail) rail.scrollLeft = 0;
+    this._raf = requestAnimationFrame(() => {
+      this._raf = requestAnimationFrame(() => this.setState({ entered: true }));
+    });
+    try {
+      const u = new URL(window.location.href);
+      u.searchParams.set('vertical', id);
+      window.history.replaceState({}, '', u);
+    } catch (e) {}
+  }
+
+  railScroll(e) {
+    const el = e.currentTarget;
+    const i = Math.round(el.scrollLeft / Math.max(el.clientWidth, 1));
+    if (i !== this.state.tile) this.setState({ tile: i });
+  }
+
+  step(e, dir) {
+    // resolve the rail from the DOM rather than a ref: the ref callback is a fresh
+    // closure each render, so React detaches it between clicks.
+    const btn = e && e.currentTarget;
+    const el = btn && btn.parentElement && btn.parentElement.parentElement
+      ? btn.parentElement.parentElement.querySelector('.nc-rail')
+      : null;
+    if (!el) return;
+    const w = Math.max(el.clientWidth, 1);
+    const cur = Math.round(el.scrollLeft / w);
+    const next = Math.min(Math.max(cur + dir, 0), 4);
+    // Direct assignment, not scrollTo({behavior:'smooth'}) — scroll-snap cancels
+    // smooth programmatic scrolling, which left the rail stationary.
+    el.scrollLeft = next * w;
+    this.setState({ tile: next });
+  }
+
+  renderVals() {
+    const selId = this.state.sel;
+    const empty = !selId;
+    const v = DATA.find((d) => d.id === selId) || DATA[0];
+    const entered = this.state.entered;
+    const anim = empty || entered;
+    const mobile = this.state.mobile;
+
+    const categories = DATA.map((d) => {
+      const on = !empty && d.id === v.id;
+      return {
+        name: d.name,
+        bg: on ? 'var(--color-primary-800)' : '#FFFFFF',
+        fg: on ? '#FFFFFF' : 'var(--color-primary-700)',
+        bd: on ? 'var(--color-primary-800)' : 'var(--color-primary-200)',
+        tabFg: on ? 'var(--color-primary-800)' : 'var(--color-primary-500)',
+        tabRule: on ? 'inset 0 -2px 0 0 #323E48' : 'none',
+        onSelect: () => this.pick(d.id)
+      };
+    });
+
+    // category words used in the descriptions
+    const cat = empty ? 'your category' : v.noun;
+    const mcat = empty ? 'your category' : (v.metricNoun || v.noun);
+
+    let cum = 0;
+    const source = empty ? [33.34, 33.33, 33.33] : v.regions;
+    const segments = source.map((pct, i) => {
+      const r = REGIONS[i];
+      const w = wedge(cum, pct);
+      cum += pct;
+      return {
+        acronym: r.acronym,
+        fullName: r.full,
+        color: empty ? 'var(--color-primary-100)' : r.color,
+        labelColor: empty ? '#AFBCC5' : '#323E48',
+        labelAnchor: w.anchor,
+        pct: empty ? '—' : pct + '%',
+        path: w.d, labelX: w.lx, labelY: w.ly,
+        leadX1: w.leadX1, leadY1: w.leadY1, leadX2: w.leadX2, leadY2: w.leadY2
+      };
+    });
+    const s0 = segments[0], s1 = segments[1], s2 = segments[2];
+
+    const dash = '—';
+    const metrics = [
+      {
+        value: empty ? dash : v.retailers.toLocaleString('en-US'),
+        label: 'Retailers connected',
+        desc: 'The number of retailers who placed ' + (/^[aeiou]/i.test(cat) ? 'an ' : 'a ') + cat + ' order on JOOR in the past year.',
+        isYoy: false, isRate: false
+      },
+      {
+        value: empty ? dash : v.reorder + '%',
+        pct: empty ? '0%' : v.reorder + '%',
+        label: 'Re-order rate',
+        desc: 'The share of ' + cat + ' retailers who came back to place a repeat order.',
+        isRate: true, isYoy: false
+      },
+      {
+        value: empty ? dash : v.brand.value,
+        isYoy: !empty && v.brand.type === 'yoy',
+        isRate: false,
+        label: v.brand.type === 'yoy' ? 'Brand profile views, year over year' : 'Brand profiles viewed',
+        desc: v.brand.type === 'count'
+          ? 'The number of ' + mcat + ' brand profiles retailers viewed.'
+          : 'Year-over-year growth in how often retailers viewed ' + mcat + ' brand profiles.'
+      },
+      {
+        value: empty ? dash : v.sheets.value,
+        isYoy: !empty && v.sheets.type === 'yoy',
+        isRate: false,
+        label: v.sheets.type === 'yoy' ? 'Linesheet views, year over year' : 'Linesheets viewed',
+        desc: v.sheets.type === 'count'
+          ? 'The number of ' + mcat + ' linesheets retailers viewed.'
+          : 'Year-over-year growth in ' + mcat + ' linesheet views.'
+      }
+    ];
+
+    const dots = [0, 1, 2, 3, 4].map((i) => ({
+      bg: i === this.state.tile ? 'var(--color-primary-800)' : 'var(--color-primary-300)'
+    }));
+
+    return {
+      categories, segments, metrics, dots,
+      isMobile: mobile,
+      isDesktop: !mobile,
+      onRailScroll: (e) => this.railScroll(e),
+      onPrev: (e) => this.step(e, -1),
+      onNext: (e) => this.step(e, 1),
+      prevOpacity: this.state.tile <= 0 ? 0.35 : 1,
+      nextOpacity: this.state.tile >= 4 ? 0.35 : 1,
+      regionDesc: 'Shows where ' + cat + ' buyers are concentrated across North America, EMEA, and APAC.',
+      band1Headline: empty
+        ? 'Want to see the top retailers buying in your category right now?'
+        : 'Want to see the top retailers buying ' + v.noun + ' right now?',
+      naX: s0.labelX, naY: s0.labelY, naFill: s0.labelColor, naAnchor: s0.labelAnchor,
+      naLeadX1: s0.leadX1, naLeadY1: s0.leadY1, naLeadX2: s0.leadX2, naLeadY2: s0.leadY2,
+      emeaX: s1.labelX, emeaY: s1.labelY, emeaFill: s1.labelColor, emeaAnchor: s1.labelAnchor,
+      emeaLeadX1: s1.leadX1, emeaLeadY1: s1.leadY1, emeaLeadX2: s1.leadX2, emeaLeadY2: s1.leadY2,
+      apacX: s2.labelX, apacY: s2.labelY, apacFill: s2.labelColor, apacAnchor: s2.labelAnchor,
+      apacLeadX1: s2.leadX1, apacLeadY1: s2.leadY1, apacLeadX2: s2.leadX2, apacLeadY2: s2.leadY2,
+      enterOpacity: anim ? 1 : 0,
+      enterShift: anim ? 'translateY(0px)' : 'translateY(14px)',
+      chartOpacity: anim ? 1 : 0,
+      chartScale: anim ? 'scale(1)' : 'scale(0.94)',
+      chartTransition: anim ? 'opacity 520ms ease, transform 520ms cubic-bezier(.2,.7,.3,1)' : 'none',
+      legendTransition: anim ? 'opacity 520ms ease 60ms, transform 520ms cubic-bezier(.2,.7,.3,1) 60ms' : 'none',
+      valueTransition: anim ? 'opacity 520ms ease 120ms, transform 520ms cubic-bezier(.2,.7,.3,1) 120ms' : 'none',
+      showNav: this.props.showNav === true
+    };
+  }
+}
+
+</script>
+</body>
+</html>
